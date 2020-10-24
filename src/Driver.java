@@ -12,19 +12,24 @@ public class Driver {
 							);
 	}
 	//method to iterate through the array and find the index of record for the title
-		/*
-		 * @return the index of record if we don`t have it --> return -1
-		 */
+	/*
+	 * @return the index of record if we don`t have it --> return -1
+	 */
 	public static int findIndexOfRecord(String title, Record[] array) {
 		for(int i = 0; i < array.length; i++) {
 			if (title.compareToIgnoreCase(array[i].getRecordTitle()) == 0) return i;
 		}
 		return -1;
 	}
-	//getAverage of lengthRecord -> return average 
+
 	public static double averageOfLength;
 	public static double averageOfRanking;
 	
+	/**
+	 * 
+	 * @param array Record[]
+	 * @return average of lengthRecord
+	 */
 	public static double getAverageOfLength (Record[] array) {
 		double ave = 0;
 		for(int i = 0; i < array.length; i++) {
@@ -34,7 +39,11 @@ public class Driver {
 		return averageOfLength;
 	}
 	
-	//getAverage of ranking -> return average (accurate double average)
+	/**
+	 * 
+	 * @param array Record[]
+	 * @return return average of ranking
+	 */
 	public static double getAverageOfRanking (Record[] array) {
 		double ave = 0;
 		for(int i = 0; i < array.length; i++) {
@@ -58,16 +67,17 @@ public class Driver {
 		
 		//Ask the user to enter the title of record
 		System.out.print("please enter the title of record : ");
-		//read the input
+		//read the input of song title
 		Scanner input = new Scanner(System.in);
 		String title = input.nextLine();
 		
-		//findRecord
+		//findRecord 
 		int index = findIndexOfRecord(title, record);
-		if(index == -1) {
-			System.out.println("This is out of record.");
-		} else {
-			printRecord(record[index]);;
+		
+		if(index == -1) { // if song name doesn't exist in the record.
+			System.out.println("This is out of record."); 
+		} else { 
+			printRecord(record[index]);; //print target record
 		}
 
 		System.out.print("the average of length is : ");
